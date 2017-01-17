@@ -9,6 +9,7 @@ La ToDo list pemettra **d'organiser** ses idées **facilement** en offrant une m
 ### Technologies utilisées
 #### Back-end
  * Node.js
+
 #### Front-end
  * Vue.js
 
