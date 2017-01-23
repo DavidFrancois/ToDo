@@ -1,7 +1,7 @@
 var controllers = {};
 
 var files = [
-  'user', 'team', 'task', 'list'
+  'user', 'team', 'task', 'list', 'homepage'
 ];
 
 for(var i=0; i<files.length; i++)

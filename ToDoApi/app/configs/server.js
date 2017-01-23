@@ -1,5 +1,6 @@
 'use strict'
 
+// JOI API : https://github.com/hapijs/joi/blob/v10.2.0/API.md
 const joi = require('joi')
 
 const name = 'todo-api';
@@ -9,7 +10,7 @@ const test = 'test';
 
 const envVarsSchema = joi.object({
   NODE_ENV: joi.string()
-    .allow([development, production, test])
+    .valid([development, production, test])
     .required(),
   PORT: joi.number()
 }).unknown()
@@ -22,7 +23,7 @@ if (error) {
 
 var port = envVars.PORT == undefined ? 8080 : envVars.PORT;
 
-console.log(envVars.NODE_ENV);
+console.log('Project launched with \"' + envVars.NODE_ENV + '\" environnement.');
 
 module.exports = {
   env: envVars.NODE_ENV,

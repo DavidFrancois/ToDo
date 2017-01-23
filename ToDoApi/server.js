@@ -9,8 +9,6 @@ var utils = require('./app/utils');
 var configs = require('./app/configs')
 var routes = require('./app/routes');
 
-// configure app to use bodyParser()
-// this will let us get the data from a POST
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
@@ -21,12 +19,15 @@ mongoose.connect(utils.mongoUri(configs.db.development.mongo), configs.db.develo
 var router = express.Router();              // get an instance of the express Router
 var port = configs.server.port;
 
-// test route to make sure everything is working (accessed at GET http://localhost:8080/api)
+//app.use(express.static('../views'));
+
 router.get('/', function(req, res) {
-    res.json({ message: 'Successful GET request on /' });
+  res.redirect('homepage/');
+    //res.json({ message: 'Successful GET request on /' });
 });
 
-// more routes for our API will happen her
+app.use('/', router);
+
 _.forEach(routes, function(route) {
   app.use(route.path, route.router);
 });
