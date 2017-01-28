@@ -1,17 +1,7 @@
 <template>
   <div id="app">
-    <div class="row">
-      <div class="col-md-6">
-        <app-sign-in>
-
-        </app-sign-in>
-      </div>
-      <div class="col-md-6">
-        <app-sign-up>
-
-        </app-sign-up>
-      </div>
-    </div>
+    <app-home-page>
+    </app-home-page>
   </div>
 </template>
 
