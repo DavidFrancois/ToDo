@@ -29,7 +29,7 @@
 </template>
 
 
-<style>
+<style scope>
   .sign-up-form{
     width: 600px;
     margin: auto;

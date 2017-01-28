@@ -19,7 +19,7 @@
 </template>
 
 
-<style>
+<style scope>
   .sign-in-form{
     width: 600px;
     margin: auto;
