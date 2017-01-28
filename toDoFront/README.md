@@ -1,4 +1,4 @@
-# to-do-front
+# to-do
 
 > A Vue.js project
 
