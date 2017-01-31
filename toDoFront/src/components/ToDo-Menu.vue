@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="todo-list">
-      <app-todo-li v-for="todo in toDoList" :toDoName="todo.name"></app-todo-li>
+    <div class="todos-list">
+      <app-todo-li v-for="todo in toDoList" :toDoName="todo.name" :toDoID="todo.id"></app-todo-li>
     </div>
   </div>
 </template>
@@ -39,14 +39,13 @@ export default {
       ]
 
       }
-      message : "Cette page sera une liste des différentes toDo auxquelles a accès l'utilisateur"
     }
   }
 
 </script>
 
 <style scope>
-  .todo-list{
+  .todos-list{
     margin:10px;
   }
 </style>
