@@ -2,12 +2,12 @@ language: node_js
 node_js:
   - "6.9.2"
 notifications:
-  email: false
+  - email: false
   
 before_script:
-  chmod 777 -R scriptTest.pl
+  - chmod 777 -R scriptTest.pl
 
 script: 
-  scriptTest.pl
+  - scriptTest.pl
 
  
