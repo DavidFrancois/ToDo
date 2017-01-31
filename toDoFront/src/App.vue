@@ -23,6 +23,9 @@ export default {
   .menu-horizontal{
     display: inline-flex;
     list-style-type: none;
+    padding-bottom: 10px;
+    width: 100%;
+    border-bottom-style: solid;
   }
 
   .menu-horizontal li{
