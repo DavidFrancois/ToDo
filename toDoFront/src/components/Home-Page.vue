@@ -15,11 +15,10 @@
     </div>
   </div>
 </template>
-
 <script>
 
-import SignIn from './Sign-In.vue';
-import SignUp from './Sign-Up.vue';
+import SignIn from './forms/Sign-In.vue';
+import SignUp from './forms/Sign-Up.vue';
 
 export default {
   components: {
