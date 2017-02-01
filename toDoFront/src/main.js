@@ -15,6 +15,7 @@ Vue.component('app-todo-page', ToDoPage);
 Vue.component('app-todo-menu', ToDoMenu);
 Vue.component('app-input', Input);
 
+Vue.http.options.root = 'http://localhost:8080';
 
 const routes = [
   { path: '/', component: HomePage},
@@ -29,11 +30,5 @@ const router = new VueRouter({
 new Vue({
   el: '#app',
   router,
-  render: h => h(App),
-  http: {
-    root: 'http://localhost:8080/',
-    headers: {
-      Authorization: 'Basic YXBpOnBhc3N3b3Jk'
-    }
-  }
+  render: h => h(App)
 })

@@ -85,16 +85,18 @@
           }
         },
         sendData(){
-          this.$http.post('user', {
+          this.$http.post('user/', {
             login : this.user.login,
             email : this.user.email,
             password : this.user.password
           }).then(response => {
             //success callback
             console.log(response.status);
+            console.log(response.body);
           }, response => {
             //error callback
             console.log(response.status);
+            console.log(response.body);
           })
         }
       }
