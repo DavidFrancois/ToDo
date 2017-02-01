@@ -1,7 +1,13 @@
 <template>
   <div>
     <div class="todos-list">
-      <app-todo-li v-for="todo in toDoList" :toDoName="todo.name" :toDoID="todo.id"></app-todo-li>
+      <h2>Mes todo</h2>
+      <app-todo-li v-for="todo in myToDo" :toDoName="todo.name" :toDoID="todo.id"></app-todo-li>
+    </div>
+
+    <div class="todos-list">
+      <h2>Autres todo</h2>
+      <app-todo-li v-for="todo in myToDo" :toDoName="todo.name" :toDoID="todo.id"></app-todo-li>
     </div>
   </div>
 </template>
@@ -15,7 +21,7 @@ export default {
   },
   data(){
     return {
-      toDoList: [
+      myToDo: [
         {
           id: "1",
           name: "ma todo"
