@@ -85,8 +85,6 @@
           }
         },
         sendData(){
-<<<<<<< HEAD
-=======
           this.$http.post('user', {
             login : this.user.login,
             email : this.user.email,
@@ -98,7 +96,6 @@
             //error callback
             console.log(response.status);
           })
->>>>>>> installation de vue-resource qui permet de communiquer avec l'api, perfectionnement de l'inscription (component Sign-Up.vue)
         }
       }
     }
