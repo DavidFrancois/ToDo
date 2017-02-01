@@ -62,8 +62,7 @@
         checkData(){
           let logex = new RegExp("^[a-zA-Z]{"+this.params.minLengthLogin+","+this.params.maxLengthLogin+"}$");
           let emailex = new RegExp("^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$");
-          let passwordex = new RegExp("^(?=.*\d)(?=.*[a-zA-Z]).{4,30}$");
-          console.log(this.user.password + passwordex);
+          let passwordex = new RegExp("^(?=.*[0-9])(?=.*[a-zA-Z]).{"+this.params.minLengthPassword+","+this.params.maxLengthPassword+"}$");
           if(!logex.test(this.user.login)){
             this.$refs.signupLogin.invalidate();}
           else{
@@ -81,9 +80,22 @@
             else{
               this.$refs.signupPasswordConfirm.validate();}
           }
+          if(this.$refs.signupLogin.isValid && this.$refs.signupPassword.isValid && this.$refs.signupPasswordConfirm.isValid && this.$refs.signupLogin.isValid){
+            this.sendData();
+          }
         },
         sendData(){
-
+          this.$http.post('user', {
+            login : this.user.login,
+            email : this.user.email,
+            password : this.user.password
+          }).then(response => {
+            //success callback
+            console.log(response.status);
+          }, response => {
+            //error callback
+            console.log(response.status);
+          })
         }
       }
     }

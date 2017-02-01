@@ -19,11 +19,6 @@ mongoose.connect(utils.mongoUri(configs.db.development.mongo), configs.db.develo
 var router = express.Router();              // get an instance of the express Router
 var port = configs.server.port;
 
-router.get('/', function(req, res) {
-  res.redirect('homepage/');
-    //res.json({ message: 'Successful GET request on /' });
-});
-
 app.use('/', router);
 
 _.forEach(routes, function(route) {
