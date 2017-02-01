@@ -24,16 +24,18 @@
       props:['inputType', 'inputId', 'inputPlaceholder', 'value'],
       data(){
         return{
-          login:"",
-          inputStyle:""
+          inputStyle:"",
+          isValid: false
         }
       },
       methods:{
         validate(){
           this.inputStyle = 'border-color : green;';
+          this.isValid = true;
         },
         invalidate(){
           this.inputStyle = 'border-color : red;';
+          this.isValid = false;
         }
       }
     }

@@ -1,11 +1,13 @@
-import Vue from 'vue'
+import Vue from 'vue';
 import VueRouter from 'vue-router';
-import App from './App.vue'
+import VueResource from 'vue-resource';
+import App from './App.vue';
 import HomePage from './components/Home-Page.vue';
 import ToDoPage from './components/ToDo-Page.vue';
 import ToDoMenu from './components/ToDo-Menu.vue';
 import Input from './components/inputs/Input.vue';
 
+Vue.use(VueResource);
 Vue.use(VueRouter);
 
 Vue.component('app-home-page', HomePage);
@@ -27,5 +29,11 @@ const router = new VueRouter({
 new Vue({
   el: '#app',
   router,
-  render: h => h(App)
+  render: h => h(App),
+  http: {
+    root: 'http://localhost:8080/',
+    headers: {
+      Authorization: 'Basic YXBpOnBhc3N3b3Jk'
+    }
+  }
 })
