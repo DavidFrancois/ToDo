@@ -38,10 +38,12 @@ module.exports.create = function (Model) {
     return function (req, res, next) {
         Model.create(req.body, function(err, model) {
             if (err) throw err;
-            res.status(200).send(model);
+            res.writeHead(200, {
+              'Access-Control-Allow-Origin' : '*',
+              'Content-Length' : body.length,
+              'Content-Type' : 'text/html'
+            });
+            res.send(model);
         });
     }
 }
-
-
-

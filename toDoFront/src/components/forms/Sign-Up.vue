@@ -85,15 +85,18 @@
           }
         },
         sendData(){
+          this.$http.headers.common['Access-Control-Allow-Origin'] = '*';
           this.$http.post('user', {
             login : this.user.login,
             email : this.user.email,
             password : this.user.password
-          }).then(response => {
+          }, {headers: { 'Origin':'http://localhost:8081', 'Access-Control-Allow-Origin': '*', 'Authorization': 'Basic YXBpOnBhc3N3b3Jk'}}).then(response => {
             //success callback
+            console.log('success !');
             console.log(response.status);
           }, response => {
             //error callback
+            console.log('error');
             console.log(response.status);
           })
         }
