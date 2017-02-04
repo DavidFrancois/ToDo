@@ -8,8 +8,7 @@ var common = require('./common');
 var User = models.user;
 
 module.exports.auth = function (req, res, next) {
-  console.log(req.login);
-        User.findOne({ login: req.login, password: req.password }, function(err, model) {
+        User.findOne({ login: req.query.login, password: req.query.password }, function(err, model) {
             if (err) throw err
             res.status(200).send(model);
         });
