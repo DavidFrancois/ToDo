@@ -15,7 +15,9 @@
   },
   "description": "toDo project is a school project written in node",
   "version": "0.0.0",
-  "devDependencies": {},
+  "devDependencies": {
+    "mocha": "^3.2.0"
+  },
   "author": "Giom, Veuch & Inspector GrandZob",
   "license": "ISC"
 }
