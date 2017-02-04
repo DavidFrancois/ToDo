@@ -15,7 +15,6 @@
     </div>
   </div>
 </template>
-
 <script>
 
 import SignIn from './forms/Sign-In.vue';

@@ -3,19 +3,16 @@
     <div class="form-group">
       <label for="sign-up-login" >Login</label>
       <input class="form-control" id="sign-up-login" placeholder="Login">
-      </div>
     </div>
 
     <div class="form-group">
       <label for="sign-up-email">E-mail</label>
-        <input type="email"  class="form-control" id="sign-up-email" placeholder="E mail">
-      </div>
+      <input type="email"  class="form-control" id="sign-up-email" placeholder="E mail">
     </div>
 
     <div class="form-group">
       <label for="sign-up-password">Mot de passe</label>
-        <input type="password"  class="form-control" id="sign-up-password" placeholder="Mot de passe">
-      </div>
+      <input type="password"  class="form-control" id="sign-up-password" placeholder="Mot de passe">
     </div>
 
 
@@ -48,7 +45,6 @@
     export default{
       data(){
         return{
-          
         }
       }
     }
