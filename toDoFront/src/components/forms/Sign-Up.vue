@@ -91,12 +91,10 @@
             password : this.user.password
           }, {headers: {'Authorization': 'Basic YXBpOnBhc3N3b3Jk'}}).then(response => {
             //success callback
-            console.log('success !');
             console.log(response.status);
             console.log(response.body);
           }, response => {
             //error callback
-            console.log('error');
             console.log(response.status);
             console.log(response.body);
           })
