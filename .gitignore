@@ -2,3 +2,5 @@ node_modules/*
 npm-debug.log
 toDoApi/npm-debug.log
 toDoApi/node_modules/*
+toDoFront/npm-debug.log
+toDoFront/node_modules/*
