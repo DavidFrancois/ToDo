@@ -8,21 +8,19 @@ var request = request('http://localhost:8080');
 
 describe('Test backend API' , function () {
   describe('Test Sign-Up', function(){
-    it('return 200 and ID when Login, Email and Password are sent', function(done) {
-      // on test que le serveur retourne bien une 200 lorsque on écrit un message valide
-      request
+    it('return 200 and ID when Login, Email and Password are sent', function() {
+      return request
         .post('/user')
+        .type("json")
         .send({
           login : 'test',
           email : 'test',
           password : 'test'
         })
         .expect(200)
-        .end(function(err,res){
-          if (err) return done(err);
-          expect(res).to.not.be.undefined;
-          expect(res).to.have.property('id');
-          done();
+        .then(response => {
+          expect(response).to.not.be.undefined;
+          expect(response.body).to.have.property('_id');
         });
       });
     });
