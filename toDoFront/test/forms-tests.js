@@ -81,9 +81,9 @@ describe('Test backend API' , function () {
     describe('Test Sign-In', function(){
       it('returns 200 when correct Login and Password are sent', function(done){
         request
-        .post(signInPath)
+        .get(signInPath)
         .type(typeJson)
-        .send({
+        .query({
           login : correctLogin,
           password : correctPassword
         })
@@ -92,9 +92,9 @@ describe('Test backend API' , function () {
       });
       it('returns 401 when wrong Login is sent', function(done){
         request
-        .post(signInPath)
+        .get(signInPath)
         .type(typeJson)
-        .send({
+        .query({
           login : wrongLogin,
           password : correctPassword
         })
@@ -103,9 +103,9 @@ describe('Test backend API' , function () {
       });
       it('returns 401 when wrong Password is sent', function(done){
         request
-        .post(signInPath)
+        .get(signInPath)
         .type(typeJson)
-        .send({
+        .query({
           login : correctLogin,
           password : wrongPassword
         })

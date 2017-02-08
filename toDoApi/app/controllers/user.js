@@ -8,13 +8,13 @@ var common = require('./common');
 var User = models.user;
 
 module.exports.auth = function (req, res, next) {
-  User.findOne({ login: req.query.login, password: req.query.password }, function(err, model) {
+  User.findOne({ login: req.body.login, password: req.body.password }, function(err, model) {
     if (err) throw err
     if(model){
       res.writeHead(200,{
-        'Content-Type': 'application/json'
+        'Content-Type': 'text/plain'
       });
-      res.write(JSON.stringify(model));
+      res.write("Success !");
       res.end();
     }
     else{
