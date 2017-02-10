@@ -1,0 +1,30 @@
+version: '2'
+
+services:
+  api:
+    image: todoapi
+    command:
+    - node
+    - /home/node/src/server.js
+    environment:
+      NODE_ENV: test
+    labels:
+      traefik.frontend.passHostHeader: 'true'
+      traefik.frontend.rule: 'Host: todo-api.l3miage.fr'
+      traefik.port: '3000'
+    logging:
+      driver: json-file
+      options:
+        max-size: '50m'
+    read_only: true
+    restart: on-failure:5
+    cpu_shares: 128
+    mem_limit: 536870912
+    security_opt:
+    - no-new-privileges
+
+networks:
+  default:
+    external:
+      name: traefik
+
