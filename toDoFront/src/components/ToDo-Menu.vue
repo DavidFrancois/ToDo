@@ -1,13 +1,26 @@
 <template>
   <div>
-    <div class="todos-list">
-      <h2>Mes todo</h2>
-      <app-todo-li v-for="todo in myToDo" :toDoName="todo.name" :toDoID="todo.id"></app-todo-li>
-    </div>
-
-    <div class="todos-list">
-      <h2>Autres todo</h2>
-      <app-todo-li v-for="todo in myToDo" :toDoName="todo.name" :toDoID="todo.id"></app-todo-li>
+    <div class="todos-list row">
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h2>Mes todo</h2>
+          </div>
+          <div class="panel-body">
+            <app-todo-li v-for="todo in myToDo" :toDoName="todo.name" :toDoID="todo.id"></app-todo-li>  
+          </div>
+        </div>    
+      </div>
+      <div class="col-md-6">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h2>Autres todo</h2>  
+          </div>
+          <div class="panel-body">
+            <app-todo-li v-for="todo in myToDo" :toDoName="todo.name" :toDoID="todo.id"></app-todo-li>
+          </div>
+        </div>    
+      </div>
     </div>
   </div>
 </template>
