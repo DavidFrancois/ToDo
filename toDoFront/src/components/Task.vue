@@ -1,8 +1,11 @@
 <template>
-	<div class="external-event bg-red ui-draggable ui-draggable-handle" style="position: relative;">{{ task }}</div>
+	<div>
+		<div class="btn btn-primary">{{ task }}</div>
+	</div>
 </template>
 
 <script>
+
 	export default {
 		name: 'Task',
 
@@ -10,8 +13,18 @@
 
 		data () {
 			return {
-				text: 'toto'
 			}
 		}
 	}
 </script>
+
+<style scope>
+	.btn {
+		margin-bottom: 5px;
+		min-width: 100%;
+		max-width: 100%;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+</style>

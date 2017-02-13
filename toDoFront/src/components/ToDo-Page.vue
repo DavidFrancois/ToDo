@@ -1,17 +1,11 @@
 <template lang="html">
-  
-  <div class="row">
-    <div class="col-md-3">
-
-      <list>
-        
-      </list>
-    </div>
-    <div class="col-md-9">
-      <div class="box box-primary">
-        <div class="box box-body">
-
-        </div>
+  <div>
+    <div class="row">
+      <div class="col-md-6">
+        <task-generator></task-generator>
+      </div>
+      <div class="col-md-6">
+        <list></list>
       </div>
     </div>
   </div>
@@ -19,11 +13,16 @@
 
 <script>
 
+import TaskGenerator from './TaskGenerator.vue';
+import draggable from 'vuedraggable';
 import List from './List.vue';
 
-export default {
-  components: {
-    'list': List
+
+  export default {
+		components: {
+      draggable,
+      'list': List,
+      'task-generator': TaskGenerator
   },
   data() {
     return {
@@ -32,3 +31,9 @@ export default {
   }
 }
 </script>
+
+<style scope>
+  .row {
+    margin: 20px;
+  }
+</style>
