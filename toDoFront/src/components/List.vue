@@ -5,11 +5,14 @@
 				<h2>Drag Tasks here</h2>
 			</div>
 			<div class="panel-body">
-			<div class="drag">
-				<draggable :list="tasks" class="dragArea" :options="{group:'people'}">
-					<div v-for="task in tasks"><task :task="task"></task></div>
-				</draggable>
+				<div class="drag">
+					<draggable :list="tasks" class="dragArea" :options="{group:'people'}">
+						<div v-for="task in tasks"><task :task="task"></task></div>
+					</draggable>
+				</div>
 			</div>
+			<div class="panel-footer">
+				<button type="button" class="btn btn-success" @click="save()">Save List</button>
 			</div>
 		</div>
 	</div>
@@ -19,6 +22,7 @@
 <script>
 	import draggable from 'vuedraggable'
 	import Task from './Task.vue'
+	import lodash from 'lodash'
 
   export default {
 		components: {
@@ -31,6 +35,31 @@
 			return {
 				task: '',
 				tasks: ['init']
+			}
+		},
+
+		methods: {
+			save() {
+				// this.buildList(this.tasks);
+				this.$http.post('/task', { request: {
+						body: {
+							text: "test 1234"
+						}
+					}});
+			},
+			buildList(list) {
+				if (list.length <= 0) return;
+				_.forEach(list, function(task) {
+					this.$http.post('/task', { request: {
+						body: {
+							text: task
+						}
+					}},
+			 		response => {
+						 console.log(response.body)
+					 });
+					// console.log(test);
+				})
 			}
 		}
 	}
