@@ -1,7 +1,7 @@
 var models = {};
 
 var files = [
-  'user', 'team', 'task', 'list'
+  'user', 'list', 'task'
 ];
 
 for(var i=0; i<files.length; i++) {

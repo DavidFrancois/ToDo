@@ -8,7 +8,9 @@ var controllers = require('./../controllers');
 
 router.get('/', controllers.list.get);
 router.delete('/:id', controllers.list.delete);
+router.put('/addTask', controllers.list.addTask);
 router.put('/:id', controllers.list.update);
+// router.put('/:id', controllers.list.updateTask);
 router.post('/', controllers.list.create);
 
 module.exports = {path: '/list', router: router};

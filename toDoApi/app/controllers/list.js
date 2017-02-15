@@ -12,3 +12,13 @@ module.exports.create = common.create(List);
 module.exports.update = common.update(List);
 module.exports.delete = common.delete(List);
 module.exports.get = common.get(List);
+
+module.exports.addTask = function(req, res) {
+    List.findOne({ _id: req.body.id }, function(err, model) {
+        var newTask = new Task(req.body.task);
+
+        model.tasks.push(newTask);
+        model.save();
+        res.status(200).send(model);
+    });
+};
