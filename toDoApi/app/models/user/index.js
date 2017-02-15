@@ -9,8 +9,11 @@ var team = new Schema({
 
 var schema = new Schema({
     name: { type: 'String', trim: true, required: false, maxlength: 255 },
+    // teams: [team],
+    login: { type: 'String', trim: true, required: true, maxlength: 255 },
+    email: { type: 'String', trim: true, required: true, maxlength: 255},
+    password: { type: 'String', trim: true, required : true, maxlength: 255},
     lists: [{ type: mongoose.Schema.Types.ObjectId, ref: 'List', required: false }],
-    teams: [team]
 });
 
 schema.plugin(plugins.created);

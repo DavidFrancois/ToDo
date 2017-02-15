@@ -40,7 +40,9 @@
 
 		methods: {
 			save() {
-
+				this.$http.put('/list/addTask', { 'text': 'toto'}, response => {
+					console.log(response.body)
+				});
 			},
 			buildList(list) {
 				if (list.length <= 0) return;
@@ -59,3 +61,4 @@
 		}
 	}
 </script>
+
