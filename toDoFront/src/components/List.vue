@@ -40,12 +40,9 @@
 
 		methods: {
 			save() {
-				// this.buildList(this.tasks);
-				this.$http.post('/task', { request: {
-						body: {
-							text: "test 1234"
-						}
-					}});
+				this.$http.put('/list/addTask', { 'text': 'toto'}, response => {
+					console.log(response.body)
+				});
 			},
 			buildList(list) {
 				if (list.length <= 0) return;

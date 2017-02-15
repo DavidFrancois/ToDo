@@ -40,7 +40,6 @@
 		methods: {
 			add:  function (event) {
 				this.tasks.push(this.task);
-				console.log(this.task)
 			}
 		}
 	}

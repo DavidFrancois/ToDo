@@ -12,12 +12,9 @@
 </template>
 
 <script>
-
 import TaskGenerator from './TaskGenerator.vue';
 import draggable from 'vuedraggable';
 import List from './List.vue';
-
-
   export default {
 		components: {
       draggable,
@@ -37,3 +34,4 @@ import List from './List.vue';
     margin: 20px;
   }
 </style>
+
