@@ -6,10 +6,11 @@
 			</div>
 			<div class="panel-body">
 				<div class="drag">
-					<draggable :list="tasks" class="dragArea" :options="{group:'people'}">
-						<div v-for="task in tasks"><task :task="task"></task></div>
+					<draggable :list="tasks" @add="onAdd()" class="dragArea" :options="{group:'people'}">
+						<div v-for="task in tasks"><task :task="task"> </task></div>
 					</draggable>
 				</div>
+				<input type="text" v-model="name" placeholder="Get your list a name">
 			</div>
 			<div class="panel-footer">
 				<button type="button" class="btn btn-success" @click="save()">Save List</button>
@@ -33,30 +34,26 @@
 		name: 'List',
 		data() {
 			return {
-				task: '',
-				tasks: ['init']
+				task: {},
+				tasks: [{
+					name: '',
+					text: ''
+				}],
+				name: ''
 			}
 		},
 
 		methods: {
-			save() {
-				this.$http.put('/list/addTask', { 'text': 'toto'}, response => {
-					console.log(response.body)
-				});
+			onAdd(event) {
+				console.log(this.task, event)
 			},
-			buildList(list) {
-				if (list.length <= 0) return;
-				_.forEach(list, function(task) {
-					this.$http.post('/task', { request: {
-						body: {
-							text: task
-						}
-					}},
-			 		response => {
-						 console.log(response.body)
-					 });
-					// console.log(test);
-				})
+			save() {
+				this.$http.post('list/init', {
+					name: this.name,
+					tasks: this.tasks
+				}).then(response => {
+					console.log(response);
+				});
 			}
 		}
 	}

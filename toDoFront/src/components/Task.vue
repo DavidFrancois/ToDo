@@ -1,18 +1,31 @@
 <template>
 	<div>
-		<div class="btn btn-primary">{{ task }}</div>
-	</div>
+		<div class="btn btn-primary">{{ task.name }}</div>
+	</div> 
 </template>
 
 <script>
 	export default {
-		name: 'Task',
+		name: 'task',
 
-		props: ['task'],
+		props: {
+			task: {
+				type: Object,
+				default: function() {
+					return {
+						name: '',
+						text: ''
+					}
+				}
+			}
+		},
 
 		data () {
 			return {
 			}
+		},
+		methods : {
+
 		}
 	}
 </script>

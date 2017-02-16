@@ -3,7 +3,7 @@ var _ = require('lodash');
 var configs = require('./../configs');
 
 module.exports.get = function (Model) {
-    return function (req, res, next) {
+    return function (req, res) {
         Model.find({}, function(err, model) {
             if (err) throw err
             res.status(200).send(model);
@@ -11,9 +11,18 @@ module.exports.get = function (Model) {
     }
 }
 
+module.exports.getOne = function (Model) {
+    return function (req, res) {
+        Model.findOne({_id: req.query.id}, function(err, model){
+            if (err) throw err;
+            res.status(200).send(model);
+        });
+    } 
+}
+
 module.exports.delete = function (Model) {
-    return function (req, res, next) {
-        Model.findOne({ _id: req.params.id }, function(err, model) {
+    return function (req, res) {
+        Model.findOne({ _id: req.query.id }, function(err, model) {
             model.remove(function(err, model) {
                 if (err) throw err;
                 res.status(204).send("Suppression effectuée");
@@ -23,7 +32,7 @@ module.exports.delete = function (Model) {
 }
 
 module.exports.update = function (Model) {
-    return function (req, res, next) {
+    return function (req, res) {
         Model.findOne({ _id: req.params.id }, function (err, model){
             model = _.assign(model, req.body)
             model.save(function(err, model) {
@@ -35,7 +44,7 @@ module.exports.update = function (Model) {
 }
 
 module.exports.create = function (Model) {
-    return function (req, res, next) {
+    return function (req, res) {
         Model.create(req.body, function(err, model) {
             if (err) throw err;
             res.status(200).send(model);
