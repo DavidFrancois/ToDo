@@ -92,11 +92,9 @@
           }, {headers: {'Authorization': 'Basic YXBpOnBhc3N3b3Jk'}}).then(response => {
             //success callback
             console.log(response.status);
-            console.log(response.body);
           }, response => {
             //error callback
             console.log(response.status);
-            console.log(response.body);
           })
         }
       }

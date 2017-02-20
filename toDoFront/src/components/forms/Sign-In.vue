@@ -42,10 +42,10 @@ export default{
   },
   methods:{
     sendData(){
-      this.$http.get('user/auth',{params:{
+      this.$http.post('user/auth',{
         login : this.user.login,
         password : this.user.password
-      }}, {headers: {'Authorization': 'Basic YXBpOnBhc3N3b3Jk'}}).then(response => {
+      }, {headers: {'Authorization': 'Basic YXBpOnBhc3N3b3Jk'}}).then(response => {
         //success callback
         console.log(response.status);
         console.log(response.body);

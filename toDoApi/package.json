@@ -11,11 +11,15 @@
   },
   "scripts": {
     "start": "NODE_ENV=development nodemon server.js",
-    "test": "NODE_ENV=test nodemon server.js"
+    "test": "./node_modules/.bin/mocha"
   },
   "description": "toDo project is a school project written in node",
   "version": "0.0.0",
-  "devDependencies": {},
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.2.0",
+    "supertest": "^3.0.0"
+  },
   "author": "Giom, Veuch & Inspector GrandZob",
   "license": "ISC"
 }

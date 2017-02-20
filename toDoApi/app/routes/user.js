@@ -7,7 +7,7 @@ var controllers = require('./../controllers');
 // var renderers = require('./../renderers');
 
 router.get('/', controllers.user.get);
-router.get('/auth', controllers.user.auth)
+router.post('/auth', controllers.user.auth)
 router.post('/', controllers.user.create);
 router.delete('/:id', controllers.user.delete);
 router.put('/:id', controllers.user.update);
