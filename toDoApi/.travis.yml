@@ -1,0 +1,13 @@
+language: node_js
+
+node_js:
+  - "6.9.2"
+  
+before_script:
+  - chmod 777 -R scriptTest.pl
+
+script: 
+  - perl scriptTest.pl
+
+notifications:
+  email: false
