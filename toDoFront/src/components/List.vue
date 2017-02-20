@@ -2,12 +2,21 @@
 	<div class="row">
 		<div class="panel panel-primary">
 			<div class="panel-heading">
-				<h2>Drag Tasks here</h2>
+				<h2><input type="text" v-model="name" placeholder="Get your list a name" style="background-color:transparent; border: 0px"></h2>
+			</div>
+			<div class="panel-body">
+				<div class="input-group">
+					<div class="input-group-btn">
+						<!--<button id="add-new-event" @click="add" class="btn btn-primary btn-flat" type="button"> 
+							<i class="glyphicon glyphicon-plus"></i>
+						</button>-->
+					</div>
+				</div>
 			</div>
 			<div class="panel-body">
 				<div class="drag">
-					<draggable :list="tasks" class="dragArea" :options="{group:'people'}">
-						<div v-for="task in tasks"><task :task="task"></task></div>
+					<draggable :list="tasks" class="dragArea" :options="{group:'people'}" style="min-height: 20px">
+						<div v-for="task in tasks"><task ref="taskChild" :task="task" :value="task" @update="onChildUpdate()"> </task></div>
 					</draggable>
 				</div>
 			</div>
@@ -33,31 +42,23 @@
 		name: 'List',
 		data() {
 			return {
-				task: '',
-				tasks: ['init']
+				task: {},
+				tasks: [],
+				name: ''
 			}
 		},
 
 		methods: {
-			save() {
-				this.$http.put('/list/addTask', { 'text': 'toto'}, response => {
-					console.log(response.body)
+			save: function(event) {
+				console.log(this.tasks)
+				this.$http.post('list/init', {
+					name: this.name,
+					tasks: this.tasks
+				}).then(response => {
+					console.log(response);
 				});
-			},
-			buildList(list) {
-				if (list.length <= 0) return;
-				_.forEach(list, function(task) {
-					this.$http.post('/task', { request: {
-						body: {
-							text: task
-						}
-					}},
-			 		response => {
-						 console.log(response.body)
-					 });
-					// console.log(test);
-				})
 			}
 		}
 	}
 </script>
+
