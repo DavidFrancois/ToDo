@@ -20,13 +20,22 @@
 			}
 		},
 
+		computed: {
+			getName: function() {
+				return this.name;
+			},
+			getText: function() {
+				return this.text;
+			 }
+		},
+
 		data () {
 			return {
 			}
-		},
-		methods : {
-
 		}
+		// methods : {
+
+		// }
 	}
 </script>
 

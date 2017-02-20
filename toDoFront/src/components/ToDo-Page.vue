@@ -8,16 +8,18 @@
         <list></list>
       </div>
     </div>
+    <div class="col-md-6">
+      <test></test>
+    </div>
   </div>
 </template>
 
 <script>
 import TaskGenerator from './TaskGenerator.vue';
-import draggable from 'vuedraggable';
 import List from './List.vue';
+
   export default {
 		components: {
-      draggable,
       'list': List,
       'task-generator': TaskGenerator
   },

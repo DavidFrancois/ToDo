@@ -18,7 +18,7 @@ module.exports.initList = function(req, res) {
     List.create(_.omit(req.body, 'tasks'), function(err, model) {
         if (err) return err;
         req.body.tasks.forEach(function (task){
-            model.tasks.push(new Task({ text: task }));
+            model.tasks.push(new Task(task));
         });
         model.save();
         res.status(200);

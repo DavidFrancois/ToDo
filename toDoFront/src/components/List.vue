@@ -2,15 +2,23 @@
 	<div class="row">
 		<div class="panel panel-primary">
 			<div class="panel-heading">
-				<h2>Drag Tasks here</h2>
+				<h2><input type="text" v-model="name" placeholder="Get your list a name" style="background-color:transparent; border: 0px"></h2>
+			</div>
+			<div class="panel-body">
+				<div class="input-group">
+					<div class="input-group-btn">
+						<!--<button id="add-new-event" @click="add" class="btn btn-primary btn-flat" type="button"> 
+							<i class="glyphicon glyphicon-plus"></i>
+						</button>-->
+					</div>
+				</div>
 			</div>
 			<div class="panel-body">
 				<div class="drag">
-					<draggable :list="tasks" @add="onAdd()" class="dragArea" :options="{group:'people'}">
-						<div v-for="task in tasks"><task :task="task"> </task></div>
+					<draggable :list="tasks" class="dragArea" :options="{group:'people'}" style="min-height: 20px">
+						<div v-for="task in tasks"><task ref="taskChild" :task="task" :value="task" @update="onChildUpdate()"> </task></div>
 					</draggable>
 				</div>
-				<input type="text" v-model="name" placeholder="Get your list a name">
 			</div>
 			<div class="panel-footer">
 				<button type="button" class="btn btn-success" @click="save()">Save List</button>
@@ -35,19 +43,14 @@
 		data() {
 			return {
 				task: {},
-				tasks: [{
-					name: '',
-					text: ''
-				}],
+				tasks: [],
 				name: ''
 			}
 		},
 
 		methods: {
-			onAdd(event) {
-				console.log(this.task, event)
-			},
-			save() {
+			save: function(event) {
+				console.log(this.tasks)
 				this.$http.post('list/init', {
 					name: this.name,
 					tasks: this.tasks
