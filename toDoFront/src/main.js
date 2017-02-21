@@ -37,21 +37,17 @@ var vm = new Vue({
     getConnection: function(cb) {
       var connection;
       this.$http.get('user/auth').then(res => {
-        console.log(res.body)
         this.connection = res.body;
+        return cb(this.connection);
       });
-      console.log(this.connection)
-      return cb(this.connection);
     }
   }
 })
 
 router.beforeEach((to, from, next) => {
   vm.getConnection(function(isConnected){
-    console.log(isConnected)
     if (to.path != '/' && (isConnected === 'false')) {  
-    // if (from.path != '/') from.path = '/';
-    next(false); 
+     next(false); 
     } else next();
   })
 });

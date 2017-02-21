@@ -48,11 +48,6 @@ export default{
         password : this.user.password
       }, {headers: {'Authorization': 'Basic YXBpOnBhc3N3b3Jk'}}).then(response => {
         //success callback 
-        // this.$http.post('user/connect', { 
-        //   connection: 'connection'
-        // }).then( res => {
-        //   console.log(res);
-        // });
 
         console.log(response.status);
       }, response => {

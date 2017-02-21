@@ -13,8 +13,8 @@ module.exports.auth = function (req, res, next) {
   User.findOne({ login: req.body.login, password: req.body.password }, function(err, model) {
     if (err) throw err
     if(model) { 
-      res.send(model._id);
       Auth.userService.isConnected = true;
+      Auth.userService._id = req.body._id;
       res.end();
     }
     else {
