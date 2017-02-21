@@ -7,6 +7,7 @@ var utils = require('./../utils');
 var common = require('./common');
 var List = models.list;
 var Task = models.task;
+var User = models.user;
 
 module.exports.create = common.create(List);
 module.exports.update = common.update(List);
@@ -20,6 +21,7 @@ module.exports.initList = function(req, res) {
         req.body.tasks.forEach(function (task){
             model.tasks.push(new Task(task));
         });
+        
         model.save();
         res.status(200);
     });
