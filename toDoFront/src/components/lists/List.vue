@@ -22,6 +22,7 @@
 			</div>
 			<div class="panel-footer">
 				<button type="button" class="btn btn-success" @click="save()">Save List</button>
+				<button type="button" class="btn btn-danger" @click="test()"> Test </button>
 			</div>
 		</div>
 	</div>
@@ -50,7 +51,6 @@
 
 		methods: {
 			save: function(event) {
-				console.log(this.tasks)
 				this.$http.post('list/init', {
 					name: this.name,
 					tasks: this.tasks

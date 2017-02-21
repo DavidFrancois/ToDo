@@ -6,8 +6,10 @@ var controllers = require('./../controllers');
 // var transformers = require('./../transformers');
 // var renderers = require('./../renderers');
 
+router.get('/auth', controllers.user.getAuth)
+router.get('/disconnect', controllers.user.disconnect);
 router.get('/', controllers.user.get);
-router.post('/auth', controllers.user.auth)
+router.post('/auth', controllers.user.auth);
 router.post('/', controllers.user.create);
 router.delete('/:id', controllers.user.delete);
 router.put('/:id', controllers.user.update);

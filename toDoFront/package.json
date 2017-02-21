@@ -10,6 +10,7 @@
     "test": "karma start karma.conf.js"
   },
   "dependencies": {
+    "async": "^2.1.5",
     "vue": "^2.1.0",
     "vue-resource": "^1.1.1",
     "vue-router": "^2.2.0"

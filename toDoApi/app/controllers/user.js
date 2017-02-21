@@ -5,16 +5,16 @@ var models = require('./../models');
 var configs = require('./../configs');
 var utils = require('./../utils');
 var common = require('./common');
+var services = require('../services');
 var User = models.user;
+var Auth = services.auth;
 
 module.exports.auth = function (req, res, next) {
   User.findOne({ login: req.body.login, password: req.body.password }, function(err, model) {
     if (err) throw err
-    if(model){
-      res.writeHead(200,{
-        'Content-Type': 'text/plain'
-      });
-      res.write("Success !");
+    if(model) { 
+      res.send(model._id);
+      Auth.userService.isConnected = true;
       res.end();
     }
     else {
@@ -26,6 +26,17 @@ module.exports.auth = function (req, res, next) {
     }
   });
 }
+
+module.exports.getAuth = function (req, res, next) {
+  res.send(Auth.userService.isConnected);
+};
+
+module.exports.disconnect = function (req, res, next) {
+  Auth.userService.isConnected = false;
+  Auth.userService._id = undefined; 
+  res.send('disconnection successful');
+};
+
 
 module.exports.get = common.get(User);
 module.exports.delete = common.delete(User);

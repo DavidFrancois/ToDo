@@ -31,6 +31,7 @@
 </style>
 
 <script type="text/javascript">
+
 export default{
   data(){
     return{
@@ -46,9 +47,14 @@ export default{
         login : this.user.login,
         password : this.user.password
       }, {headers: {'Authorization': 'Basic YXBpOnBhc3N3b3Jk'}}).then(response => {
-        //success callback
+        //success callback 
+        // this.$http.post('user/connect', { 
+        //   connection: 'connection'
+        // }).then( res => {
+        //   console.log(res);
+        // });
+
         console.log(response.status);
-        console.log(response.body);
       }, response => {
         //error callback
         console.log(response.status);

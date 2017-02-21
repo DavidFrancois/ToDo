@@ -15,8 +15,8 @@
 </template>
 
 <script>
-import TaskGenerator from './TaskGenerator.vue';
-import List from './List.vue';
+import TaskGenerator from './Lists/TaskGenerator.vue';
+import List from './Lists/List.vue';
 
   export default {
 		components: {
