@@ -22,7 +22,6 @@
 			</div>
 			<div class="panel-footer">
 				<button type="button" class="btn btn-success" @click="save()">Save List</button>
-				<button type="button" class="btn btn-danger" @click="test()"> Test </button>
 			</div>
 		</div>
 	</div>
