@@ -5,6 +5,7 @@ node_js:
 
 before_script:
   - chmod 777 -R scriptTest.pl
+  - chmod 777 -R /toDoApi
 
 script:
   - perl scriptTest.pl
