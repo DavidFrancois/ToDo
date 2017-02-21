@@ -33,7 +33,6 @@ export default {
       loadLists: function() {
         this.$http.get('user/lists').then(res => {
           this.myToDo = res.body;
-          console.log(res, res.body )
         });
       }
     },

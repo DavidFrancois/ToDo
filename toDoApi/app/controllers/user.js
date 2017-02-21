@@ -42,20 +42,14 @@ module.exports.getList = function( req, res, next) {
   var lists = [];
     
   User.findOne({ _id: Auth.userService._id }, function(err, model){
-    console.log(model)
-    
-          var i = 0;
+  
+    var i = 0;
     model.lists.forEach(function (list) {
 
-      List.findOne({ _id: list }, function (err, data) {
-        // console.log(data, 'data')
+      List.findOne({ _id: list }, function (err, data) { 
         lists.push(data);
         i++;
-        console.log(i, lists)
-        if (i >= model.lists.length) { 
-          console.log(lists);
-          res.send(lists)
-        }
+        if (i >= model.lists.length) res.send(lists);
       });
     });
   });

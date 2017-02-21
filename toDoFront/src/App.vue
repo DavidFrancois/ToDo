@@ -25,8 +25,8 @@ export default {
   methods: {
     disconnect: function() { 
       this.$http.get('user/disconnect').then( res => {
-        console.log(res.body);   
-     })
+        console.log('Successfully disconnected')
+      })
     }
   }
 }

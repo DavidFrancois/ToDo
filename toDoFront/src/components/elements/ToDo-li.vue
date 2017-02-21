@@ -15,7 +15,6 @@ export default {
   props: ['toDoName', 'toDoID'],
   methods: {
     deleteToDo(toDoID){
-      console.log(toDoID);
     },
     hrefMaker(toDoID){
       return toDoID +"#/todopage";

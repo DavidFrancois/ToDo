@@ -54,7 +54,7 @@
 					name: this.name,
 					tasks: this.tasks
 				}).then(response => {
-					console.log(response);
+					console.log("List posted");
 				});
 			}
 		}

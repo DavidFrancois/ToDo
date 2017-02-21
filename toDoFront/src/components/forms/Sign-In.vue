@@ -53,7 +53,7 @@ export default{
       }, response => {
         //error callback
         console.log(response.status);
-        console.log(response.body);
+
       })
     }
   }
