@@ -1,0 +1,15 @@
+language: node_js
+
+node_js:
+  - "6.9.2"
+
+before_script:
+  - chmod 777 -R scriptTest.pl
+  - chmod 777 -R toDoApi
+  - cd toDoApi
+
+script:
+  - npm run build
+
+notifications:
+  email: false
