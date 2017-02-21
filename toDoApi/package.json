@@ -11,7 +11,7 @@
   },
   "scripts": {
     "start": "NODE_ENV=development nodemon server.js",
-	"build": "npm install && npm run test",
+	"build": "npm install nodemon && npm install && npm run test",
     "test": "NODE_ENV=test nodemon server.js"
   },
   "description": "toDo project is a school project written in node",
