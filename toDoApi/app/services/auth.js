@@ -1,4 +1,4 @@
 module.exports.userService = {
-	_id: String,
+	_id: "",
 	isConnected: false
 };

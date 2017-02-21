@@ -8,6 +8,7 @@ var controllers = require('./../controllers');
 
 router.get('/auth', controllers.user.getAuth)
 router.get('/disconnect', controllers.user.disconnect);
+router.get('/lists', controllers.user.getList);
 router.get('/', controllers.user.get);
 router.post('/auth', controllers.user.auth);
 router.post('/', controllers.user.create);

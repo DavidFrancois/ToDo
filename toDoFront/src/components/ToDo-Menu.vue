@@ -7,7 +7,7 @@
             <h2>Mes todo</h2>
           </div>
           <div class="panel-body">
-            <app-todo-li v-for="todo in myToDo" :toDoName="todo.name" :toDoID="todo.id"></app-todo-li>  
+            <app-todo-li v-for="todo in myToDo" :toDoName="todo.name" :toDoID="todo._id"></app-todo-li>  
           </div>
         </div>    
       </div>
@@ -17,7 +17,7 @@
             <h2>Autres todo</h2>  
           </div>
           <div class="panel-body">
-            <app-todo-li v-for="todo in myToDo" :toDoName="todo.name" :toDoID="todo.id"></app-todo-li>
+            <app-todo-li v-for="todo in myToDo" :toDoName="todo.name" :toDoID="todo._id"></app-todo-li>
           </div>
         </div>    
       </div>
@@ -34,30 +34,21 @@ export default {
   },
   data(){
     return {
-      myToDo: [
-        {
-          id: "1",
-          name: "ma todo"
-        },
-        {
-          id: "2",
-          name: "Tata"
-        },
-        {
-          id: "3",
-          name: "Toto"
-        },
-        {
-          id: "4",
-          name: "tutu"
-        },
-        {
-          id: "5",
-          name: "titi"
-        }
-      ]
+      myToDo: []
 
       }
+    },
+
+    methods: {
+      loadLists: function() {
+        this.$http.get('user/lists').then(res => {
+          this.myToDo = res.body;
+          console.log(res, res.body )
+        });
+      }
+    },
+    mounted() {
+      this.loadLists();
     }
   }
 
