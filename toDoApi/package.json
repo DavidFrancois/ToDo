@@ -6,7 +6,7 @@
     "express": "~4.0.0",
     "joi": "^10.2.0",
     "lodash": "^4.17.4",
-    "build": "npm run test",
+    "build": "npm test",
     "mongoose": "~3.6.13",
     "string": "^3.3.3"
   },
