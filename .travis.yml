@@ -8,7 +8,7 @@ before_script:
 
 script:
   - perl scriptTest.pl
-  - cd toDoApi && npm run build
+  - cd /toDoApi && npm run build
 
 notifications:
   email: false
